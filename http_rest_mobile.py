@@ -17,7 +17,7 @@ def base64jpg():
 
 
 stations = [
-	{ 'id' : 'lastbooking', 'tid': '', 'cid' : '', 'cc' : '', 'ow' : '', 'cr' : '', 'fk' : '', 'date' : '', 'valid' : '', 'gpsco' : '' ,'addInfo' : 'TEST', 'base64jpg' : '' }, 
+	{ 'id' : 'lastbooking', 'tid': '', 'cid' : '', 'cc' : '', 'ow' : '', 'cr' : '', 'fk' : '', 'date' : '', 'valid' : '', 'gpsco' : '' ,'addInfo' : '', 'base64jpg' : '' }, 
 	{ 'id' : 'bookings', 'amount_received' : 0 , 'amount_folder' : 0 , 'same_number_of_files' : True },
 	{ 'id' : 'gps', 'amount_received' : 0 , 'amount_folder' : 0 , 'same_number_of_files' : True },
 	{ 'id' : 'lastgps', 'tid': '', 'date' : '', 'co' : '' }
@@ -46,7 +46,12 @@ class Station(Resource):
 						station["same_number_of_files"] = False
 				return station, 200
 		return "Station {} not found".format(id), 404
-
+	
+	def post(self, id):
+		return station, 201
+	
+	def put(self, id):
+		return station, 201
 	
 
 api.add_resource(Station, "/<id>")
